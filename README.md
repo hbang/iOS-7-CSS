@@ -6,7 +6,7 @@ Live example: [cydia.hbang.ws depictions](http://cydia.hbang.ws/depiction/ws.hba
 Licensed under [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0.html). UI design is copyright of Apple Inc.
 
 ## Screenshots
-![Screenshot 1](http://i.imgur.com/XOKfDs3.png) ![Screenshot 2](http://i.imgur.com/5qAYSyl.png)
+![Screenshot 1](http://i.imgur.com/XOKfDs3.png) &nbsp; ![Screenshot 2](http://i.imgur.com/5qAYSyl.png)
 
 ## Usage
 ```html
