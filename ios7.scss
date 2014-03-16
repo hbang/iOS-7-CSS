@@ -43,8 +43,13 @@ h2 {
 	margin-bottom: 5px;
 }
 
-a, li > button {
+body > p {
+	margin-top: -25px;
+}
+
+a, button {
 	color: #007aff;
+	text-decoration: none;
 }
 
 header {
@@ -96,7 +101,6 @@ ul {
 
 		> a, > button {
 			display: block;
-			text-decoration: none;
 			color: #007aff;
 			padding-right: 30px;
 
@@ -149,10 +153,6 @@ ul {
 
 	body {
 		margin-top: 0;
-		margin-bottom: 0;
-	}
-
-	ul {
 		margin-bottom: 0;
 	}
 }
