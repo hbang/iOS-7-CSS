@@ -31,6 +31,14 @@ body {
 	body {
 		margin-top: 35px;
 	}
+
+	header {
+		display: none;
+
+		+ p {
+			margin-top: -20px;
+		}
+	}
 }
 
 .depiction {
@@ -78,10 +86,6 @@ header {
 		line-height: 44px;
 		font-weight: 500;
 	}
-}
-
-.cydia header {
-	display: none;
 }
 
 ul {
