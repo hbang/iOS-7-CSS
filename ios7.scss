@@ -27,29 +27,6 @@ body {
 	-webkit-user-select: none;
 }
 
-.cydia {
-	body {
-		margin-top: 35px;
-	}
-
-	header {
-		display: none;
-
-		+ p {
-			margin-top: -20px;
-		}
-	}
-}
-
-.depiction {
-	background: transparent;
-
-	body {
-		margin-top: 0;
-		margin-bottom: 0;
-	}
-}
-
 h2, body > p {
 	margin: 15px;
 	color: #6d6d72;
@@ -153,6 +130,29 @@ ul {
 	}
 }
 
-.depiction ul {
-	margin-bottom: 0;
+.cydia {
+	body {
+		margin-top: 35px;
+	}
+
+	header {
+		display: none;
+
+		+ p {
+			margin-top: -20px;
+		}
+	}
+}
+
+.depiction {
+	background: transparent;
+
+	body {
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+
+	ul {
+		margin-bottom: 0;
+	}
 }
