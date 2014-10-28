@@ -1,4 +1,6 @@
-/*
+@import "bower_components/normalize-scss/normalize";
+
+/*!
  Basic iOS 7 CSS
  https://github.com/hbang/iOS-7-CSS
 
@@ -7,16 +9,33 @@
  UI design copyright Apple Inc.
 */
 
-* {
-	margin: 0;
-	padding: 0;
+$portrait-width: 708px;
+$landscape-width: 964px;
+
+$border-color: #c8c7cc;
+
+
+iframe {
 	border: 0;
-	outline: 0;
-	box-sizing: border-box;
 }
+
+a, button {
+	color: #007aff;
+	text-decoration: none;
+}
+
+.selectable {
+	-webkit-user-select: text;
+	cursor: auto;
+}
+
 
 html {
 	background: #efeff4;
+
+	.depiction {
+		background: transparent;
+	}
 }
 
 body {
@@ -25,34 +44,61 @@ body {
 
 	cursor: default;
 	-webkit-user-select: none;
+
+	.cydia & {
+		margin-top: 35px;
+	}
+
+	.depiction & {
+		margin-top: 0;
+		margin-bottom: 0;
+	}
 }
 
-h2, body > p {
+#content {
+	@media (min-width: $portrait-width) {
+		width: $portrait-width;
+		margin: 0 auto;
+	}
+
+	@media (min-width: $landscape-width) {
+		width: $landscape-width;
+	}
+}
+
+
+h2, body > p, p[role="footer"] {
 	margin: 15px;
 	color: #6d6d72;
 	font-size: 14px;
 	font-weight: 400;
 
-	a {
-		color: inherit;
+	@media (min-width: $portrait-width) {
+		margin-left: 0;
+		margin-right: 0;
 	}
 }
 
 h2 {
 	text-transform: uppercase;
 	margin-bottom: 5px;
+
+	a {
+		color: inherit;
+
+		&:hover, &:focus, &:active {
+			text-decoration: underline;
+		}
+	}
 }
 
-body > p {
-	margin-top: -25px;
+hr {
+	border: 0;
+	border-top: 1px solid $border-color;
 }
 
-a, button {
-	color: #007aff;
-	text-decoration: none;
-}
 
-header {
+body > header {
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -63,15 +109,25 @@ header {
 	border-bottom: 1px solid #c9c9cd;
 
 	h1 {
+		margin: 0;
 		text-align: center;
 		font-size: 18px;
 		line-height: 44px;
 		font-weight: 500;
 	}
+
+	.cydia & {
+		display: none;
+	}
+
+	.cydia & + p {
+		margin-top: -20px;
+	}
 }
 
 ul {
 	margin: 5px 0 35px 0;
+	padding: 0;
 	list-style: none;
 	background: #fff;
 
@@ -79,27 +135,33 @@ ul {
 		content: "";
 		display: block;
 		height: 1px;
-		background: #c8c7cc;
+		background: $border-color;
+
+		@media (min-width: $portrait-width) {
+			display: none;
+		}
 	}
 
 	li {
-		border-bottom: 1px solid #c8c7cc;
+		border-bottom: 1px solid $border-color;
 		margin-left: 15px;
+		padding: 13px 15px 13px 0;
 
 		&:last-child {
 			border-bottom: 0;
 		}
 
-		> p, > a, > button {
+		p, [role=link], [role=button] {
 			padding: 13px 15px;
-			margin-left: -15px;
+			margin: -13px -15px;
 
-			+ p, + a, + button {
+			+ p {
 				padding-top: 0;
+				margin-top: 0;
 			}
 		}
 
-		> a, > button {
+		[role=link], [role=button] {
 			display: block;
 			color: #007aff;
 			padding-right: 30px;
@@ -127,32 +189,17 @@ ul {
 			width: 100%;
 			text-align: left;
 		}
-	}
 
-	+ p {
-		margin-top: -25px;
-	}
-}
+		.pull-in {
+			vertical-align: top;
 
-.cydia {
-	body {
-		margin-top: 35px;
-	}
-
-	header {
-		display: none;
-
-		+ p {
-			margin-top: -20px;
+			@media (max-width: $portrait-width) {
+				margin: -13px -15px;
+			}
 		}
 	}
-}
 
-.depiction {
-	background: transparent;
-
-	body {
-		margin-top: 0;
-		margin-bottom: 0;
+	+ p, + [role=footer] {
+		margin-top: -25px;
 	}
 }
