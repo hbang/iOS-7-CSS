@@ -94,7 +94,7 @@ h2 {
 
 hr {
 	border: 0;
-	border-top: 1px solid $border-color;
+	border-top: .5px solid $border-color;
 }
 
 
@@ -106,7 +106,7 @@ body > header {
 	height: 44px;
 	z-index: 10;
 	background: #f7f7f7;
-	border-bottom: 1px solid #c9c9cd;
+	border-bottom: .5px solid #c9c9cd;
 
 	h1 {
 		margin: 0;
@@ -134,7 +134,7 @@ ul {
 	&:before, &:after {
 		content: "";
 		display: block;
-		height: 1px;
+		height: .5px;
 		background: $border-color;
 
 		@media (min-width: $portrait-width) {
@@ -143,7 +143,7 @@ ul {
 	}
 
 	li {
-		border-bottom: 1px solid $border-color;
+		border-bottom: .5px solid $border-color;
 		margin-left: 15px;
 		padding: 13px 15px 13px 0;
 
