@@ -1,0 +1,30 @@
+{
+  "name": "iOS-7-CSS",
+  "version": "1.0",
+  "homepage": "https://github.com/hbang/iOS-7-CSS",
+  "authors": [
+    "Adam D <adam@hbang.ws>"
+  ],
+  "description": "Basic iOS 7 CSS",
+  "main": "ios7.scss",
+  "keywords": [
+    "ios",
+    "ios7",
+    "jony",
+    "ive",
+    "css",
+    "apple",
+    "iphone"
+  ],
+  "license": "Apache License 2.0",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "normalize-scss": "~3.0.1"
+  }
+}

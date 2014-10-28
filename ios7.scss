@@ -1,4 +1,4 @@
-@import "vendor/normalizecss/normalize.css";
+@import "bower_components/normalize-scss/normalize";
 
 /*!
  Basic iOS 7 CSS
@@ -37,13 +37,6 @@ button {
 	-webkit-appearance: none;
 	appearance: none;
 }
-
-/*
-.selectable {
-	-webkit-user-select: text;
-	cursor: auto;
-}
-*/
 
 
 html {
