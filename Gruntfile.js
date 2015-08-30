@@ -7,18 +7,18 @@ module.exports = function(grunt) {
 		pleeease: {
 			custom: {
 				options: {
-					in: [ "ios7.css" ],
-					out: "ios7.min.css",
-
-					autoprefixer: {
-						browsers: [ "last 3 versions" ]
-					},
+					browsers: [ "last 3 versions" ],
+					sass: true,
 
 					sourcemaps: {
 						map: {
 							inline: false
 						}
 					}
+				},
+
+				files: {
+					"ios7.min.css": "ios7.scss"
 				}
 			}
 		},
