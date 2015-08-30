@@ -202,7 +202,7 @@ ul {
 		.pull-in {
 			vertical-align: top;
 
-			@media (max-width: $iphone-4-portrait-width) {
+			@media (max-width: $iphone-4-portrait-width + 1) {
 				margin: -13px -15px;
 			}
 		}
