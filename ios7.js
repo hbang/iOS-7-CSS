@@ -1,4 +1,4 @@
-/* Basic iOS 7 CSS // Apache 2 license // hbang.ws */
+/*! Basic iOS 7 CSS // Apache License 2.0 // hbang.ws */
 
 (function(document) {
 	"use strict";
