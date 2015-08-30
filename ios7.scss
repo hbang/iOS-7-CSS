@@ -1,4 +1,6 @@
-/*
+@import "vendor/normalizecss/normalize.css";
+
+/*!
  Basic iOS 7 CSS
  https://github.com/hbang/iOS-7-CSS
 
@@ -7,101 +9,177 @@
  UI design copyright Apple Inc.
 */
 
-* {
-	margin: 0;
-	padding: 0;
+$portrait-width: 708px !default;
+$landscape-width: 964px !default;
+$iphone-4-portrait-width: 320px !default;
+
+$tint-color: #007aff !default;
+$bg-color: #efeff4 !default;
+$border-color: rgba(0, 0, 0, .1) !default;
+$header-bg-color: rgba(255, 255, 255, .95) !default;
+$list-bg-color: #fff !default;
+$footer-color: #6d6d72 !default;
+
+iframe {
 	border: 0;
-	outline: 0;
-	box-sizing: border-box;
 }
 
+a, button {
+	color: $tint-color;
+	text-decoration: none;
+}
+
+button {
+	background: transparent;
+	border: 0;
+	margin: 0;
+	padding: 0;
+	-webkit-appearance: none;
+	appearance: none;
+}
+
+/*
+.selectable {
+	-webkit-user-select: text;
+	cursor: auto;
+}
+*/
+
+
 html {
-	background: #efeff4;
+	background: $bg-color;
+
+	.depiction {
+		background: transparent;
+	}
 }
 
 body {
 	font: 16px -apple-system-font, ".Helvetica NeueUI", "Helvetica Neue", sans-serif;
 	margin: 80px 0 35px 0;
 
-	cursor: default;
-	-webkit-user-select: none;
+	// cursor: default;
+	// -webkit-user-select: none;
+
+	.cydia & {
+		margin-top: 35px;
+	}
+
+	.depiction & {
+		margin-top: 0;
+		margin-bottom: 0;
+	}
 }
 
-h2, body > p {
+#content {
+	@media (min-width: $portrait-width) {
+		width: $portrait-width;
+		margin: 0 auto;
+	}
+
+	@media (min-width: $landscape-width) {
+		width: $landscape-width;
+	}
+}
+
+
+h2, body > p, p[role="footer"] {
 	margin: 15px;
-	color: #6d6d72;
+	color: $footer-color;
 	font-size: 14px;
 	font-weight: 400;
 
-	a {
-		color: inherit;
+	@media (min-width: $portrait-width) {
+		margin-left: 0;
+		margin-right: 0;
 	}
 }
 
 h2 {
 	text-transform: uppercase;
 	margin-bottom: 5px;
+
+	a {
+		color: inherit;
+
+		&:hover, &:focus, &:active {
+			text-decoration: underline;
+		}
+	}
 }
 
-body > p {
-	margin-top: -25px;
+hr {
+	border: 0;
+	border-top: 1px solid $border-color;
 }
 
-a, button {
-	color: #007aff;
-	text-decoration: none;
-}
 
-header {
+body > header {
 	position: fixed;
 	top: 0;
 	left: 0;
 	width: 100%;
 	height: 44px;
 	z-index: 10;
-	background: #f7f7f7;
-	border-bottom: 1px solid #c9c9cd;
+	background: $header-bg-color;
+	border-bottom: 1px solid $border-color;
 
 	h1 {
+		margin: 0;
 		text-align: center;
 		font-size: 18px;
 		line-height: 44px;
 		font-weight: 500;
 	}
+
+	.cydia & {
+		display: none;
+	}
+
+	.cydia & + p {
+		margin-top: -20px;
+	}
 }
 
 ul {
 	margin: 5px 0 35px 0;
+	padding: 0;
 	list-style: none;
-	background: #fff;
+	background: $list-bg-color;
 
 	&:before, &:after {
 		content: "";
 		display: block;
 		height: 1px;
-		background: #c8c7cc;
+		background: $border-color;
+
+		@media (min-width: $portrait-width) {
+			display: none;
+		}
 	}
 
 	li {
-		border-bottom: 1px solid #c8c7cc;
+		border-bottom: 1px solid $border-color;
 		margin-left: 15px;
+		padding: 13px 15px 13px 0;
 
 		&:last-child {
 			border-bottom: 0;
 		}
 
-		> p, > a, > button {
+		p, [role=link], [role=button] {
 			padding: 13px 15px;
-			margin-left: -15px;
+			margin: -13px -15px;
 
-			+ p, + a, + button {
+			+ p {
 				padding-top: 0;
+				margin-top: 0;
 			}
 		}
 
-		> a, > button {
+		[role=link], [role=button] {
 			display: block;
-			color: #007aff;
+			color: $tint-color;
 			padding-right: 30px;
 
 			position: relative;
@@ -127,32 +205,17 @@ ul {
 			width: 100%;
 			text-align: left;
 		}
-	}
 
-	+ p {
-		margin-top: -25px;
-	}
-}
+		.pull-in {
+			vertical-align: top;
 
-.cydia {
-	body {
-		margin-top: 35px;
-	}
-
-	header {
-		display: none;
-
-		+ p {
-			margin-top: -20px;
+			@media (max-width: $iphone-4-portrait-width) {
+				margin: -13px -15px;
+			}
 		}
 	}
-}
 
-.depiction {
-	background: transparent;
-
-	body {
-		margin-top: 0;
-		margin-bottom: 0;
+	+ p, + [role=footer] {
+		margin-top: -25px;
 	}
 }
