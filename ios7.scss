@@ -119,7 +119,7 @@ body > header {
 	z-index: 10;
 	background: $header-bg-color;
 	border-bottom: 1px solid $border-color;
-	-webkit-backdrop-filter: blur(1px);
+	-webkit-backdrop-filter: blur(5px);
 
 	.has-subpixel & {
 		border-bottom-width: .5px;
