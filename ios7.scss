@@ -18,11 +18,14 @@ $iphone-4-portrait-width: 320px !default;
 
 $tint-color: #007aff !default;
 $bg-color: #efeff4 !default;
-$border-color: rgba(0, 0, 0, .2) !default;
-$header-border-color: rgba(0, 0, 0, .32) !default;
-$header-bg-color: rgba(245, 245, 245, .8) !default;
+$header-bg-color: rgba(249, 249, 249, .85) !default;
 $list-bg-color: #fff !default;
 $footer-color: #6d6d72 !default;
+
+$border-color: rgba(0, 0, 0, .1) !default;
+$header-border-color: rgba(0, 0, 0, .1) !default;
+$border-color-subpixel: rgba(0, 0, 0, .2) !default;
+$header-border-color-subpixel: rgba(0, 0, 0, .32) !default;
 
 iframe {
 	border: 0;
@@ -121,7 +124,7 @@ body > header {
 	-webkit-backdrop-filter: blur(20px);
 
 	.has-subpixel & {
-		border-bottom-width: .5px;
+		border-bottom: .5px solid $header-border-color-subpixel;
 	}
 
 	.cydia & {
@@ -166,6 +169,7 @@ ul {
 
 		.has-subpixel & {
 			height: .5px;
+			background: $border-color-subpixel;
 		}
 
 		@media (min-width: $portrait-width) {
@@ -179,7 +183,7 @@ ul {
 		padding: 13px 15px 13px 0;
 
 		.has-subpixel & {
-			border-bottom-width: .5px;
+			border-bottom: .5px solid $border-color-subpixel;
 		}
 
 		&:last-child {
