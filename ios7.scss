@@ -9,6 +9,9 @@
  UI design copyright Apple Inc.
 */
 
+$fontstack-text: -apple-system, -apple-system-font, ".SFNSText-Regular", ".Helvetica NeueUI", "Helvetica Neue", sans-serif !default;
+$fontstack-heading: -apple-system, -apple-system-font, ".SFNSDisplay-Medium", ".Helvetica NeueUI", "Helvetica Neue", sans-serif !default;
+
 $portrait-width: 708px !default;
 $landscape-width: 964px !default;
 $iphone-4-portrait-width: 320px !default;
@@ -48,7 +51,7 @@ html {
 }
 
 body {
-	font: 16px -apple-system-font, ".Helvetica NeueUI", "Helvetica Neue", sans-serif;
+	font: 16px $fontstack-text;
 	margin: 80px 0 35px 0;
 
 	// cursor: default;
@@ -117,20 +120,18 @@ body > header {
 	background: $header-bg-color;
 	border-bottom: 1px solid $border-color;
 
-	h1 {
-		margin: 0;
-		text-align: center;
-		font-size: 18px;
-		line-height: 44px;
-		font-weight: 500;
-	}
-
 	.cydia & {
 		display: none;
 	}
 
 	.cydia & + p {
 		margin-top: -20px;
+	}
+
+	h1 {
+		margin: 0;
+		text-align: center;
+		font: 500 18px/44px $fontstack-heading;
 	}
 }
 
