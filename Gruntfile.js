@@ -22,6 +22,12 @@ module.exports = function(grunt) {
 				}
 			}
 		},
+
+		bump: {
+			options: {
+				tagName: "%VERSION%"
+			}
+		}
 	});
 
 	grunt.loadNpmTasks("grunt-bower-task");
