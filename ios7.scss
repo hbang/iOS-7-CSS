@@ -18,8 +18,9 @@ $iphone-4-portrait-width: 320px !default;
 
 $tint-color: #007aff !default;
 $bg-color: #efeff4 !default;
-$border-color: rgba(0, 0, 0, .1) !default;
-$header-bg-color: rgba(255, 255, 255, .95) !default;
+$border-color: rgba(0, 0, 0, .2) !default;
+$header-border-color: rgba(0, 0, 0, .32) !default;
+$header-bg-color: rgba(245, 245, 245, .8) !default;
 $list-bg-color: #fff !default;
 $footer-color: #6d6d72 !default;
 
@@ -51,7 +52,8 @@ html {
 }
 
 body {
-	font: 16px $fontstack-text;
+	font: 17px/1.45em $fontstack-text;
+	font: -apple-system-body;
 	margin: 80px 0 35px 0;
 
 	.cydia & {
@@ -115,8 +117,8 @@ body > header {
 	height: 44px;
 	z-index: 10;
 	background: $header-bg-color;
-	border-bottom: 1px solid $border-color;
-	-webkit-backdrop-filter: blur(5px);
+	border-bottom: 1px solid $header-border-color;
+	-webkit-backdrop-filter: blur(20px);
 
 	.has-subpixel & {
 		border-bottom-width: .5px;
@@ -133,7 +135,12 @@ body > header {
 	h1 {
 		margin: 0;
 		text-align: center;
-		font: 500 18px/44px $fontstack-heading;
+
+		font-family: $fontstack-heading;
+		font-weight: 500;
+		font: -apple-system-headline;
+		font-size: 18px;
+		line-height: 44px;
 	}
 
 	.cydia & {
