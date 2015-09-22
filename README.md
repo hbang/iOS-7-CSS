@@ -1,42 +1,58 @@
 # Basic iOS 7 CSS
-Basic, simple, semantic, and less than 2.2kb (minified and gzipped). Mostly intended for use by Cydia repositories’ depiction pages.
+Basic, simple, semantic, and less than 2.2kb (minified and gzipped).
 
 Integrate it with your project easily with [Bower](http://bower.io): `bower install ios-7-css`
 
-Live example: [cydia.hbang.ws depictions](http://cydia.hbang.ws/depiction/ws.hbang.typestatus)
+Live example: [cydia.hbang.ws](http://cydia.hbang.ws/depiction/ws.hbang.typestatus/)
 
 Licensed under [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0.html). UI design is copyright of Apple Inc.
 
 ## Screenshots
 ![Screenshot 1](http://i.imgur.com/XOKfDs3.png) &nbsp; ![Screenshot 2](http://i.imgur.com/5qAYSyl.png)
 
-## Usage
+## Example Usage
 ```html
-<header>
-	<h1>Page header.</h1>
-</header>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Hello World</title>
 
-<h2>Section header.</h2>
-<ul>
-	<li>
-		<p>Text element.</p>
-	</li>
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=0">
 
-	<li>
-		<a href="http://hbang.ws" target="_blank">Link.</a>
-	</li>
+	<link rel="stylesheet" href="ios7.min.css">
+	<script src="ios7.min.js"></script>
+</head>
+<body>
+	<header>
+		<h1>Page header.</h1>
+	</header>
 
-	<li>
-		<button type="submit">Button.</button>
-	</li>
+	<main id="content">
+		<h2>Section header.</h2>
+		<ul>
+			<li>
+				<p>Text element.</p>
+			</li>
 
-	<li>
-		<p>It’s ok to have more than one element at a time.</p>
-		<p>Like so…</p>
-		<a href="https://www.google.com" target="_blank">But you should probably only use that with multiple paragraphs.</a>
-	</li>
-</ul>
-<p>Section footer.</p>
+			<li>
+				<a href="http://hbang.ws" target="_blank" role="button">Link.</a>
+			</li>
+
+			<li>
+				<button type="submit">Button.</button>
+			</li>
+
+			<li>
+				<p>It’s ok to have more than one element at a time.</p>
+				<p>Like so…</p>
+				<a href="https://www.google.com" target="_blank" role="button">But you should probably only use that with multiple paragraphs.</a>
+			</li>
+		</ul>
+		<p role="footer">Section footer.</p>
+	</main>
+</body>
+</html>
 ```
 
-Note: `<p>`, `<a>` or `<button>` must be a direct child of `<li>`. Therefore, using a `<button>` assumes it has a `click` event handler set with JavaScript, or that the `<ul>` is wrapped in a `<form>`.
+Note that this has changed since version 1.x. Buttons must now be specified with `role="button"`; footers must be specified with `role="footer"`. Headers *should* use `role="header"`, but the styling is still applied to `<h2>`.
