@@ -121,6 +121,10 @@ body > header {
 	border-bottom: 1px solid $border-color;
 	-webkit-backdrop-filter: blur(1px);
 
+	.has-subpixel & {
+		border-bottom-width: .5px;
+	}
+
 	.cydia & {
 		display: none;
 	}
@@ -148,6 +152,10 @@ ul {
 		height: 1px;
 		background: $border-color;
 
+		.has-subpixel & {
+			height: .5px;
+		}
+
 		@media (min-width: $portrait-width) {
 			display: none;
 		}
@@ -157,6 +165,10 @@ ul {
 		border-bottom: 1px solid $border-color;
 		margin-left: 15px;
 		padding: 13px 15px 13px 0;
+
+		.has-subpixel & {
+			border-bottom-width: .5px;
+		}
 
 		&:last-child {
 			border-bottom: 0;

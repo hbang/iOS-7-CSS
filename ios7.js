@@ -3,7 +3,10 @@
 (function(document) {
 	"use strict";
 
-	var classList = document.documentElement.classList;
+	// MARK: - Cydia detection
+
+	var docElement = document.documentElement,
+		classList = docElement.classList;
 
 	if (navigator.userAgent.indexOf("Cydia") != -1) {
 		if (document.title.indexOf(" \u00b7 ") != -1) {
@@ -13,5 +16,20 @@
 		classList.add("cydia");
 	} else {
 		classList.remove("cydia", "depiction");
+	}
+
+	// MARK: - Subpixel rendering detection
+	// via http://dieulot.net/css-retina-hairline
+
+	if ("devicePixelRatio" in window && devicePixelRatio >= 2) {
+		var testElement = document.createElement("div");
+		testElement.style.border = ".5px solid transparent";
+		docElement.appendChild(testElement);
+
+		if (testElem.offsetHeight > 0) {
+			classList.add("has-subpixel");
+		}
+
+		docElement.removeChild(testElement);
 	}
 })(document);
