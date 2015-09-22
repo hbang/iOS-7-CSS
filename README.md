@@ -1,5 +1,5 @@
 # Basic iOS 7 CSS
-Basic, simple, semantic, and less than 1kb (minified and gzipped). Mostly intended for use by Cydia repositories’ depiction pages.
+Basic, simple, semantic, and less than 2.2kb (minified and gzipped). Mostly intended for use by Cydia repositories’ depiction pages.
 
 Integrate it with your project easily with [Bower](http://bower.io): `bower install ios-7-css`
 
