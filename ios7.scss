@@ -185,11 +185,6 @@ ul {
 		p, [role=link], [role=button] {
 			padding: 13px 15px;
 			margin: -13px -15px;
-
-			+ p {
-				padding-top: 0;
-				margin-top: 0;
-			}
 		}
 
 		[role=link], [role=button] {
