@@ -26,7 +26,7 @@
 		testElement.style.border = ".5px solid transparent";
 		docElement.appendChild(testElement);
 
-		if (testElem.offsetHeight > 0) {
+		if (testElement.offsetHeight > 0) {
 			classList.add("has-subpixel");
 		}
 
