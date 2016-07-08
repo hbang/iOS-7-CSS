@@ -10,6 +10,7 @@
 */
 
 $fontstack-text: -apple-system, -apple-system-font, ".SFNSDisplay-Regular", ".Helvetica NeueUI", "Helvetica Neue", sans-serif !default;
+$fontstack-bold: -apple-system, -apple-system-font, ".SFNSDisplay-Semibold", ".Helvetica NeueUI", "Helvetica Neue", sans-serif !default;
 $fontstack-heading: -apple-system, -apple-system-font, ".SFNSDisplay-Medium", ".Helvetica NeueUI", "Helvetica Neue", sans-serif !default;
 
 $portrait-width: 708px !default;
@@ -37,10 +38,19 @@ $header-border-color-subpixel: rgba(0, 0, 0, .32) !default;
 	font-weight: 400; // normal
 }
 
+.font-bold {
+	font-family: $fontstack-bold;
+	font-weight: 600; // semibold
+}
+
 .font-heading {
 	font-family: $fontstack-heading;
 	font-weight: 500; // medium
 	font: -apple-system-headline;
+}
+
+strong, b {
+	@extend .font-bold;
 }
 
 
