@@ -27,6 +27,23 @@ $header-border-color: rgba(0, 0, 0, .1) !default;
 $border-color-subpixel: rgba(0, 0, 0, .2) !default;
 $header-border-color-subpixel: rgba(0, 0, 0, .32) !default;
 
+.font-body {
+	font: 400 16px/1.3em $fontstack-text;
+	font: -apple-system-body;
+}
+
+.font-subtitle {
+	font-size: 14px;
+	font-weight: 400; // normal
+}
+
+.font-heading {
+	font-family: $fontstack-heading;
+	font-weight: 500; // medium
+	font: -apple-system-headline;
+}
+
+
 iframe {
 	border: 0;
 }
@@ -55,8 +72,8 @@ html {
 }
 
 body {
-	font: 17px/1.45em $fontstack-text;
-	font: -apple-system-body;
+	@extend .font-body;
+
 	margin: 80px 0 35px 0;
 
 	.cydia & {
@@ -81,11 +98,11 @@ body {
 }
 
 
-h2, body > p, p[role="footer"] {
+h2, body > p, [role="footer"] {
+	@extend .font-subtitle;
+
 	margin: 15px;
 	color: $footer-color;
-	font-size: 14px;
-	font-weight: 400;
 
 	@media (min-width: $portrait-width) {
 		margin-left: 0;
@@ -136,12 +153,11 @@ body > header {
 	}
 
 	h1 {
+		@extend .font-heading;
+
 		margin: 0;
 		text-align: center;
 
-		font-family: $fontstack-heading;
-		font-weight: 500;
-		font: -apple-system-headline;
 		font-size: 18px;
 		line-height: 44px;
 	}
@@ -172,7 +188,7 @@ ul {
 	li {
 		border-bottom: 1px solid $border-color;
 		margin-left: 15px;
-		padding: 13px 15px 13px 0;
+		padding: 11px 15px 11px 0;
 
 		.has-subpixel & {
 			border-bottom: .5px solid $border-color-subpixel;
@@ -183,8 +199,8 @@ ul {
 		}
 
 		p, [role=link], [role=button] {
-			padding: 13px 15px;
-			margin: -13px -15px;
+			padding: 11px 15px;
+			margin: -11px -15px;
 		}
 
 		[role=link], [role=button] {
@@ -220,7 +236,7 @@ ul {
 			vertical-align: top;
 
 			@media (max-width: $iphone-4-portrait-width + 1) {
-				margin: -13px -15px;
+				margin: -11px -15px;
 			}
 		}
 	}
