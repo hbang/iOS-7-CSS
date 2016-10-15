@@ -9,9 +9,9 @@
  UI design copyright Apple Inc.
 */
 
-$fontstack-text: -apple-system-font, ".SFNSDisplay-Regular", ".Helvetica NeueUI", "Helvetica Neue", sans-serif !default;
-$fontstack-bold: -apple-system-font, ".SFNSDisplay-Semibold", ".Helvetica NeueUI", "Helvetica Neue", sans-serif !default;
-$fontstack-heading: -apple-system-font, ".SFNSDisplay-Medium", ".Helvetica NeueUI", "Helvetica Neue", sans-serif !default;
+$fontstack-text: -apple-system-font, ".SFNSDisplay-Regular", BlinkMacSystemFont, ".Helvetica NeueUI", "Helvetica Neue", sans-serif !default;
+$fontstack-bold: -apple-system-font, ".SFNSDisplay-Semibold", BlinkMacSystemFont, ".Helvetica NeueUI", "Helvetica Neue", sans-serif !default;
+$fontstack-heading: -apple-system-font, ".SFNSDisplay-Medium", BlinkMacSystemFont, ".Helvetica NeueUI", "Helvetica Neue", sans-serif !default;
 
 $portrait-width: 708px !default;
 $landscape-width: 964px !default;
