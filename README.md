@@ -1,7 +1,7 @@
 # Basic iOS 7 CSS
 Basic, simple, semantic, and less than 2.2kb (minified and gzipped).
 
-Integrate it with your project easily with [Bower](https://bower.io/): `bower install ios-7-css`
+Integrate it with your project easily with [Bower](https://bower.io/): `bower install iOS-7-CSS`
 
 Live example: [cydia.hbang.ws](https://cydia.hbang.ws/depiction/ws.hbang.typestatus/)
 
@@ -29,7 +29,8 @@ Licensed under [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0.
 	</header>
 
 	<main id="content">
-		<h2>Section header.</h2>
+		<h2 role="header">Section header.</h2>
+		
 		<ul>
 			<li>
 				<p>Text element.</p>
@@ -49,6 +50,7 @@ Licensed under [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0.
 				<a href="https://www.google.com/" target="_blank" role="button">But you should probably only use that with multiple paragraphs.</a>
 			</li>
 		</ul>
+
 		<p role="footer">Section footer.</p>
 	</main>
 </body>
