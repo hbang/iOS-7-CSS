@@ -19,7 +19,9 @@ module.exports = function(grunt) {
 
 				files: {
 					"ios7.min.css": "ios7.scss"
-				}
+				},
+
+				includePaths: [ "bower_components" ]
 			}
 		},
 
