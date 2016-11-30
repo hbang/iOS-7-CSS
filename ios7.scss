@@ -4,14 +4,14 @@
  Basic iOS 7 CSS
  https://github.com/hbang/iOS-7-CSS
 
- HASHBANG Productions <http://hbang.ws>
+ HASHBANG Productions <https://hbang.ws/>
  Apache License 2.0 <https://www.apache.org/licenses/LICENSE-2.0.html>
  UI design copyright Apple Inc.
 */
 
-$fontstack-text: -apple-system-font, ".SFNSDisplay-Regular", BlinkMacSystemFont, ".Helvetica NeueUI", "Helvetica Neue", sans-serif !default;
-$fontstack-bold: -apple-system-font, ".SFNSDisplay-Semibold", BlinkMacSystemFont, ".Helvetica NeueUI", "Helvetica Neue", sans-serif !default;
-$fontstack-heading: -apple-system-font, ".SFNSDisplay-Medium", BlinkMacSystemFont, ".Helvetica NeueUI", "Helvetica Neue", sans-serif !default;
+$fontstack-text: system-ui, BlinkMacSystemFont, -apple-system-font, "Helvetica Neue", sans-serif !default;
+$fontstack-bold: $fontstack-text;
+$fontstack-heading: $fontstack-heading;
 
 $portrait-width: 708px !default;
 $landscape-width: 964px !default;
