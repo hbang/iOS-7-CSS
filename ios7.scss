@@ -11,7 +11,7 @@
 
 $fontstack-text: system-ui, BlinkMacSystemFont, -apple-system-font, "Helvetica Neue", sans-serif !default;
 $fontstack-bold: $fontstack-text;
-$fontstack-heading: $fontstack-heading;
+$fontstack-heading: $fontstack-text;
 
 $portrait-width: 708px !default;
 $landscape-width: 964px !default;
