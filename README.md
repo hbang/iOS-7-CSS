@@ -69,19 +69,25 @@ You will need to have [Node.js](https://nodejs.org) and `npm` installed on your 
 
 To set up Bower and Gulp for the project, run the following commands:
 
-```npm install -g bower gulp # Install globally so you can use the commands
-npm install # Install project dependencies```
+```
+npm install -g bower gulp # Install globally so you can use the commands
+npm install # Install project dependencies
+```
 
 ### Getting project dependencies
 
 Now that you have Bower working, you can use it to fetch dependencies by running:
 
-```bower install```
+```
+bower install
+```
 
 ### Building to CSS
 
 Once you've retrieved the required project dependencies using Bower, you can finally build it using Gulp. You can do this by running:
 
-```gulp```
+```
+gulp
+```
 
 This will create the stylesheet as a minified CSS file at "ios7.min.css". It will also include a .map file for helpful debugging.
