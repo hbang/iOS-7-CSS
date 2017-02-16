@@ -2,7 +2,8 @@
 
 /*!
  Basic iOS 7 CSS
- https://github.com/hbang/iOS-7-CSS
+ Original: https://github.com/hbang/iOS-7-CSS
+ Custom fork: https://github.com/AppleBetas/iOS-7-CSS
 
  HASHBANG Productions <https://hbang.ws/>
  Apache License 2.0 <https://www.apache.org/licenses/LICENSE-2.0.html>
@@ -105,6 +106,89 @@ body {
 	@media (min-width: $landscape-width) {
 		width: $landscape-width;
 	}
+	
+	ul {
+		margin: 5px 0 35px 0;
+		padding: 0;
+		list-style: none;
+		background: $list-bg-color;
+
+		&:before, &:after {
+			content: "";
+			display: block;
+			height: 1px;
+			background: $border-color;
+
+			.has-subpixel & {
+				height: .5px;
+				background: $border-color-subpixel;
+			}
+
+			@media (min-width: $portrait-width) {
+				display: none;
+			}
+		}
+
+		li {
+			border-bottom: 1px solid $border-color;
+			margin-left: 15px;
+			padding: 11px 15px 11px 0;
+
+			.has-subpixel & {
+				border-bottom: .5px solid $border-color-subpixel;
+			}
+
+			&:last-child {
+				border-bottom: 0;
+			}
+
+			p, [role=link], [role=button] {
+				padding: 11px 15px;
+				margin: -11px -15px;
+			}
+
+			[role=link], [role=button] {
+				display: block;
+				color: $tint-color;
+				padding-right: 30px;
+
+				position: relative;
+				z-index: 2;
+
+				&:after {
+					content: "";
+					display: block;
+					background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NSIgaGVpZ2h0PSI5OSI+PHBvbHlnb24gcG9pbnRzPSIzNC43LDQ5LjcgMCw4NC40IDE1LjEsOTkuNSA2NC44LDQ5LjcgNDkuNywzNC43IDE1LjEsMCAwLDE1LjEiIHN0eWxlPSJmaWxsOiNjN2M3Y2MiLz48L3N2Zz4=");
+	
+					position: absolute;
+					top: 50%;
+					right: 15px;
+					width: 10px;
+					height: 13px;
+					margin-top: -7px;
+					background-size: 100% 100%;
+				}
+			}
+
+			> button {
+				font: inherit;
+				width: 100%;
+				text-align: left;
+			}
+
+			.pull-in {
+				vertical-align: top;
+
+				@media (max-width: $iphone-4-portrait-width + 1) {
+					margin: -11px -15px;
+				}
+			}
+		}
+
+		+ p, + [role=footer] {
+			margin-top: -25px;
+		}
+	}
 }
 
 
@@ -171,88 +255,5 @@ body > header {
 
 		font-size: 18px;
 		line-height: 44px;
-	}
-}
-
-ul {
-	margin: 5px 0 35px 0;
-	padding: 0;
-	list-style: none;
-	background: $list-bg-color;
-
-	&:before, &:after {
-		content: "";
-		display: block;
-		height: 1px;
-		background: $border-color;
-
-		.has-subpixel & {
-			height: .5px;
-			background: $border-color-subpixel;
-		}
-
-		@media (min-width: $portrait-width) {
-			display: none;
-		}
-	}
-
-	li {
-		border-bottom: 1px solid $border-color;
-		margin-left: 15px;
-		padding: 11px 15px 11px 0;
-
-		.has-subpixel & {
-			border-bottom: .5px solid $border-color-subpixel;
-		}
-
-		&:last-child {
-			border-bottom: 0;
-		}
-
-		p, [role=link], [role=button] {
-			padding: 11px 15px;
-			margin: -11px -15px;
-		}
-
-		[role=link], [role=button] {
-			display: block;
-			color: $tint-color;
-			padding-right: 30px;
-
-			position: relative;
-			z-index: 2;
-
-			&:after {
-				content: "";
-				display: block;
-				background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NSIgaGVpZ2h0PSI5OSI+PHBvbHlnb24gcG9pbnRzPSIzNC43LDQ5LjcgMCw4NC40IDE1LjEsOTkuNSA2NC44LDQ5LjcgNDkuNywzNC43IDE1LjEsMCAwLDE1LjEiIHN0eWxlPSJmaWxsOiNjN2M3Y2MiLz48L3N2Zz4=");
-
-				position: absolute;
-				top: 50%;
-				right: 15px;
-				width: 10px;
-				height: 13px;
-				margin-top: -7px;
-				background-size: 100% 100%;
-			}
-		}
-
-		> button {
-			font: inherit;
-			width: 100%;
-			text-align: left;
-		}
-
-		.pull-in {
-			vertical-align: top;
-
-			@media (max-width: $iphone-4-portrait-width + 1) {
-				margin: -11px -15px;
-			}
-		}
-	}
-
-	+ p, + [role=footer] {
-		margin-top: -25px;
 	}
 }
