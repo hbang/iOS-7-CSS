@@ -128,7 +128,7 @@ body {
 			}
 		}
 
-		li {
+		> li {
 			border-bottom: 1px solid $border-color;
 			margin-left: 15px;
 			padding: 11px 15px 11px 0;
@@ -141,12 +141,12 @@ body {
 				border-bottom: 0;
 			}
 
-			p, [role=link], [role=button] {
+			> p, > [role=link], > [role=button] {
 				padding: 11px 15px;
 				margin: -11px -15px;
 			}
 
-			[role=link], [role=button] {
+			> [role=link], > [role=button] {
 				display: block;
 				color: $tint-color;
 				padding-right: 30px;
@@ -175,7 +175,7 @@ body {
 				text-align: left;
 			}
 
-			.pull-in {
+			> .pull-in {
 				vertical-align: top;
 
 				@media (max-width: $iphone-4-portrait-width + 1) {
