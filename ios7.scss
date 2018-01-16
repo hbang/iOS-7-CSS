@@ -10,23 +10,23 @@
 */
 
 $fontstack-text: system-ui, BlinkMacSystemFont, -apple-system-font, "Helvetica Neue", sans-serif !default;
-$fontstack-bold: $fontstack-text;
-$fontstack-heading: $fontstack-text;
 
 $portrait-width: 708px !default;
 $landscape-width: 964px !default;
 $iphone-4-portrait-width: 320px !default;
 
 $tint-color: #007aff !default;
-$bg-color: #efeff4 !default;
-$header-bg-color: rgba(249, 249, 249, .85) !default;
+$bg-color: #efeff5 !default;
+$header-bg-color: rgba(246, 246, 248, .85) !default;
 $list-bg-color: #fff !default;
 $footer-color: #6d6d72 !default;
 
-$border-color: rgba(0, 0, 0, .1) !default;
+$border-color: #c8c7cc !default;
+$selection-color: #d9d9d9 !default;
 $header-border-color: rgba(0, 0, 0, .1) !default;
-$border-color-subpixel: rgba(0, 0, 0, .2) !default;
 $header-border-color-subpixel: rgba(0, 0, 0, .32) !default;
+
+$section-border-radius: 4px !default;
 
 .font-body {
 	font: 400 16px/1.3em $fontstack-text;
@@ -39,12 +39,10 @@ $header-border-color-subpixel: rgba(0, 0, 0, .32) !default;
 }
 
 .font-bold {
-	font-family: $fontstack-bold;
 	font-weight: 600; // semibold
 }
 
 .font-heading {
-	font-family: $fontstack-heading;
 	font-weight: 500; // medium
 	font: -apple-system-headline;
 }
@@ -52,7 +50,6 @@ $header-border-color-subpixel: rgba(0, 0, 0, .32) !default;
 strong, b {
 	@extend .font-bold;
 }
-
 
 iframe {
 	border: 0;
@@ -70,6 +67,22 @@ button {
 	padding: 0;
 	-webkit-appearance: none;
 	appearance: none;
+}
+
+
+.subpixel-line {
+	display: block;
+	width: 100%;
+	height: 1px;
+	background: $border-color;
+
+	.has-subpixel & {
+		height: (1px / 2px) + px;
+	}
+
+	.has-subpixel-3x & {
+		height: (1px / 3px) + px;
+	}
 }
 
 
@@ -108,7 +121,7 @@ body {
 }
 
 
-h2, body > p, [role="footer"] {
+h2, body > p, [role=footer] {
 	@extend .font-subtitle;
 
 	margin: 15px;
@@ -135,7 +148,7 @@ h2 {
 
 hr {
 	border: 0;
-	border-top: 1px solid $border-color;
+	@extend .subpixel-line;
 }
 
 
@@ -147,12 +160,15 @@ body > header {
 	height: 44px;
 	z-index: 10;
 	background: $header-bg-color;
-	border-bottom: 1px solid $header-border-color;
 	-webkit-backdrop-filter: blur(20px);
 	backdrop-filter: blur(20px);
 
-	.has-subpixel & {
-		border-bottom: .5px solid $header-border-color-subpixel;
+	&:after {
+		content: "";
+		@extend .subpixel-line;
+		position: absolute;
+		left: 0;
+		bottom: 0;
 	}
 
 	.cydia & {
@@ -175,52 +191,105 @@ body > header {
 }
 
 ul {
+	position: relative;
 	margin: 5px 0 35px 0;
 	padding: 0;
 	list-style: none;
 	background: $list-bg-color;
 
-	&:before, &:after {
-		content: "";
-		display: block;
-		height: 1px;
-		background: $border-color;
+	@media (min-width: $portrait-width) {
+		border-radius: $section-border-radius;
+	}
 
-		.has-subpixel & {
-			height: .5px;
-			background: $border-color-subpixel;
-		}
+	&:before, &:after {
+		@extend .subpixel-line;
+		content: "";
+		position: absolute;
+		left: 0;
 
 		@media (min-width: $portrait-width) {
 			display: none;
 		}
 	}
 
-	li {
-		border-bottom: 1px solid $border-color;
-		margin-left: 15px;
-		padding: 11px 15px 11px 0;
+	&:before {
+		top: 0;
+	}
 
-		.has-subpixel & {
-			border-bottom: .5px solid $border-color-subpixel;
+	&:after {
+		bottom: 0;
+	}
+
+	li {
+		position: relative;
+		margin-left: 15px;
+		margin-bottom: -1px;
+		padding: 12px 15px 12px 0;
+
+		&:after {
+			@extend .subpixel-line;
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
 		}
 
-		&:last-child {
-			border-bottom: 0;
+		&:first-child {
+			&:after {
+				background: transparent;
+			}
+		}
+
+		@media (min-width: $portrait-width) {
+			&:first-child {
+				&, p, [role=link], [role=button] {
+					border-top-left-radius: $section-border-radius;
+					border-top-right-radius: $section-border-radius;
+				}
+			}
+
+			&:last-child {
+				&, p, [role=link], [role=button] {
+					border-bottom-left-radius: $section-border-radius;
+					border-bottom-right-radius: $section-border-radius;
+				}
+			}
 		}
 
 		p, [role=link], [role=button] {
-			padding: 11px 15px;
-			margin: -11px -15px;
+			padding: 12px 15px;
+			margin: -12px -15px;
+		}
+
+		&.has-icon {
+			margin-left: 59px;
+
+			p, [role=link], [role=button] {
+				margin-left: -59px;
+				padding-left: 59px;
+			}
+		}
+
+		.icon {
+			position: absolute;
+			top: 7px;
+			left: 15px;
+			width: 29px;
+			height: 29px;
 		}
 
 		[role=link], [role=button] {
 			display: block;
 			color: $tint-color;
 			padding-right: 30px;
+			-webkit-tap-highlight-color: transparent;
 
 			position: relative;
 			z-index: 2;
+
+			&:focus, &:active {
+				background-color: $selection-color;
+			}
 
 			&:after {
 				content: "";
