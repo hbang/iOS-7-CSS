@@ -5,8 +5,6 @@ Integrate it with your project easily with [Bower](https://bower.io/): `bower in
 
 Live example: [cydia.hbang.ws](https://cydia.hbang.ws/depiction/ws.hbang.typestatus2/)
 
-Licensed under [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0.html). UI design is copyright of Apple Inc.
-
 ## Screenshots
 ![Screenshot 1](https://i.imgur.com/XOKfDs3.png) &nbsp; ![Screenshot 2](https://i.imgur.com/5qAYSyl.png)
 
@@ -58,3 +56,6 @@ Licensed under [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0.
 ```
 
 Note that this has changed since version 1.x. Buttons must now be specified with `role="button"`; footers must be specified with `role="footer"`. Headers *should* use `role="header"`, but the styling is still applied to `<h2>`.
+
+## License
+Licensed under the Apache License, version 2.0. Refer to [LICENSE.md](LICENSE.md).
