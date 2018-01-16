@@ -1,9 +1,9 @@
 # Basic iOS 7 CSS
-Basic, simple, semantic, and less than 2.2kb (minified and gzipped).
+Basic, simple, semantic, and small (5.1 KB minified and gzipped).
 
 Integrate it with your project easily with [Bower](https://bower.io/): `bower install iOS-7-CSS`
 
-Live example: [cydia.hbang.ws](https://cydia.hbang.ws/depiction/ws.hbang.typestatus/)
+Live example: [cydia.hbang.ws](https://cydia.hbang.ws/depiction/ws.hbang.typestatus2/)
 
 Licensed under [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0.html). UI design is copyright of Apple Inc.
 
