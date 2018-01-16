@@ -57,5 +57,32 @@ Live example: [cydia.hbang.ws](https://cydia.hbang.ws/depiction/ws.hbang.typesta
 
 Note that this has changed since version 1.x. Buttons must now be specified with `role="button"`; footers must be specified with `role="footer"`. Headers *should* use `role="header"`, but the styling is still applied to `<h2>`.
 
+## Installation
+### The easy way:
+Just [download this repo](https://github.com/hbang/iOS-7-CSS/archive/master.zip) and copy `ios7.min.css` and `ios7.min.js` to your website.
+
+### The hard way:
+1. Clone the repo.  
+   ```bash
+   git clone https://github.com/hbang/iOS-7-CSS.git
+   cd iOS-7-CSS
+   ```
+2. Install node, npm, and Bower if you don’t already have them installed. For example, on macOS:  
+   ```bash
+   brew install node
+   npm install -g bower
+   ```
+3. Install the dependencies.  
+   ```bash
+   npm install
+   npm install -g gulp-cli
+   bower install
+   ```
+4. Whenever you want to compile the CSS and JS, run Gulp.  
+   ```bash
+   gulp
+   ```
+
+
 ## License
 Licensed under the Apache License, version 2.0. Refer to [LICENSE.md](LICENSE.md).
