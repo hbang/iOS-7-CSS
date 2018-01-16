@@ -5,10 +5,13 @@
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.1",
     "gulp-clean-css": "^2.0.13",
+    "gulp-concat": "^2.6.1",
     "gulp-load-plugins": "^1.4.0",
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^2.3.2",
     "gulp-sourcemaps": "^1.9.1",
+    "gulp-uglify": "^3.0.0",
+    "pump": "^2.0.0",
     "run-sequence": "^1.2.2"
   }
 }

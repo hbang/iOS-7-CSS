@@ -1,36 +1,67 @@
 const gulp = require("gulp");
+const pump = require("pump");
 const runSequence = require("run-sequence");
 const del = require("del");
 const $ = require("gulp-load-plugins")();
 
 gulp.task("css", () => {
-	return gulp
+	pump([
 		// get all scss files
-		.src("ios7.scss")
+		gulp.src("ios7.scss"),
 		// make a sourcemap
-		.pipe($.sourcemaps.init())
+		$.sourcemaps.init(),
 		// run it through sass
-		.pipe($.sass.sync({
+		$.sass.sync({
 			includePaths: [ "bower_components" ]
-		}).on("error", $.sass.logError))
+		}),
 		// add prefixes as needed
-		.pipe($.autoprefixer())
+		$.autoprefixer(),
 		// make it ugly
-		.pipe($.cleanCss())
+		$.cleanCss(),
 		// add minified suffix
-		.pipe($.rename({
+		$.rename({
 			suffix: ".min"
-		}))
+		}),
 		// write the sourcemaps
-		.pipe($.sourcemaps.write("."))
+		$.sourcemaps.write("."),
 		// write the file
-		.pipe(gulp.dest("."))
+		gulp.dest(".")
+	]);
+});
+
+gulp.task("js", () => {
+	pump([
+		// get all scss files
+		gulp.src([
+			"bower_components/fastclick/lib/fastclick.js",
+			"ios7.js"
+		]),
+		// concat to one file
+		$.concat("ios7.min.js"),
+		// make a sourcemap
+		$.sourcemaps.init(),
+		// make it ugly
+		$.uglify({
+			output: {
+				comments: /^!|@preserve|@license/
+			}
+		}),
+		// write the sourcemaps
+		$.sourcemaps.write("."),
+		// write the file
+		gulp.dest(".")
+	]);
 });
 
 gulp.task("clean", () => {
-	del("ios7.min.css");
+	del([
+		"ios7.min.css",
+		"ios7.min.css.map",
+		"ios7.min.js",
+		"ios7.min.js.map"
+	]);
 });
 
 gulp.task("default", (callback) => {
-	runSequence("clean", "css", callback);
+	runSequence("clean", [ "css", "js" ], callback);
 });
