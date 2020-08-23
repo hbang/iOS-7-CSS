@@ -85,6 +85,11 @@ button {
 	}
 }
 
+hr {
+	border: 0;
+	@extend .subpixel-line;
+}
+
 
 html {
 	background: $bg-color;
@@ -109,7 +114,7 @@ body {
 	}
 }
 
-#content {
+.ios-main {
 	@media (min-width: $portrait-width) {
 		width: $portrait-width;
 		margin: 0 auto;
@@ -120,39 +125,171 @@ body {
 	}
 }
 
+.ios-table {
+	> h2, > [role=header], > [role=footer] {
+		@extend .font-subtitle;
 
-h2, body > p, [role=footer] {
-	@extend .font-subtitle;
+		margin: 15px;
+		color: $footer-color;
 
-	margin: 15px;
-	color: $footer-color;
-
-	@media (min-width: $portrait-width) {
-		margin-left: 0;
-		margin-right: 0;
-	}
-}
-
-h2 {
-	text-transform: uppercase;
-	margin-bottom: 5px;
-
-	a {
-		color: inherit;
-
-		&:hover, &:focus, &:active {
-			text-decoration: underline;
+		@media (min-width: $portrait-width) {
+			margin-left: 0;
+			margin-right: 0;
 		}
 	}
+
+	> h2, > [role-header] {
+		text-transform: uppercase;
+		margin-bottom: 5px;
+
+		a {
+			color: inherit;
+
+			&:hover, &:focus, &:active {
+				text-decoration: underline;
+			}
+		}
+	}
+
+	> ul {
+		position: relative;
+		margin: 5px 0 35px 0;
+		padding: 0;
+		list-style: none;
+		background: $list-bg-color;
+	
+		@media (min-width: $portrait-width) {
+			border-radius: $section-border-radius;
+		}
+	
+		&:before, &:after {
+			@extend .subpixel-line;
+			content: "";
+			position: absolute;
+			left: 0;
+	
+			@media (min-width: $portrait-width) {
+				display: none;
+			}
+		}
+	
+		&:before {
+			top: 0;
+		}
+	
+		&:after {
+			bottom: 0;
+		}
+	
+		li {
+			position: relative;
+			margin-left: 15px;
+			margin-bottom: -1px;
+			padding: 12px 15px 12px 0;
+	
+			&:after {
+				@extend .subpixel-line;
+				content: "";
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+	
+			&:first-child {
+				&:after {
+					background: transparent;
+				}
+			}
+	
+			@media (min-width: $portrait-width) {
+				&:first-child {
+					&, p, [role=link], [role=button] {
+						border-top-left-radius: $section-border-radius;
+						border-top-right-radius: $section-border-radius;
+					}
+				}
+	
+				&:last-child {
+					&, p, [role=link], [role=button] {
+						border-bottom-left-radius: $section-border-radius;
+						border-bottom-right-radius: $section-border-radius;
+					}
+				}
+			}
+	
+			p, [role=link], [role=button] {
+				padding: 12px 15px;
+				margin: -12px -15px;
+			}
+	
+			&.has-icon {
+				margin-left: 59px;
+	
+				p, [role=link], [role=button] {
+					margin-left: -59px;
+					padding-left: 59px;
+				}
+			}
+	
+			.icon {
+				position: absolute;
+				top: 7px;
+				left: 15px;
+				width: 29px;
+				height: 29px;
+			}
+	
+			[role=link], [role=button] {
+				display: block;
+				color: $tint-color;
+				padding-right: 30px;
+				-webkit-tap-highlight-color: transparent;
+	
+				position: relative;
+				z-index: 2;
+	
+				&:focus, &:active {
+					background-color: $selection-color;
+				}
+	
+				&:after {
+					content: "";
+					display: block;
+					background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NSIgaGVpZ2h0PSI5OSI+PHBvbHlnb24gcG9pbnRzPSIzNC43LDQ5LjcgMCw4NC40IDE1LjEsOTkuNSA2NC44LDQ5LjcgNDkuNywzNC43IDE1LjEsMCAwLDE1LjEiIHN0eWxlPSJmaWxsOiNjN2M3Y2MiLz48L3N2Zz4=");
+	
+					position: absolute;
+					top: 50%;
+					right: 15px;
+					width: 10px;
+					height: 13px;
+					margin-top: -7px;
+					background-size: 100% 100%;
+				}
+			}
+	
+			> button {
+				font: inherit;
+				width: 100%;
+				text-align: left;
+			}
+	
+			.pull-in {
+				vertical-align: top;
+	
+				@media (max-width: $iphone-4-portrait-width + 1) {
+					margin: -11px -15px;
+				}
+			}
+		}
+	
+		+ p, + [role=footer] {
+			margin-top: -25px;
+		}
+	}	
 }
 
-hr {
-	border: 0;
-	@extend .subpixel-line;
-}
 
-
-body > header {
+.ios-header {
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -187,141 +324,5 @@ body > header {
 
 		font-size: 18px;
 		line-height: 44px;
-	}
-}
-
-ul {
-	position: relative;
-	margin: 5px 0 35px 0;
-	padding: 0;
-	list-style: none;
-	background: $list-bg-color;
-
-	@media (min-width: $portrait-width) {
-		border-radius: $section-border-radius;
-	}
-
-	&:before, &:after {
-		@extend .subpixel-line;
-		content: "";
-		position: absolute;
-		left: 0;
-
-		@media (min-width: $portrait-width) {
-			display: none;
-		}
-	}
-
-	&:before {
-		top: 0;
-	}
-
-	&:after {
-		bottom: 0;
-	}
-
-	li {
-		position: relative;
-		margin-left: 15px;
-		margin-bottom: -1px;
-		padding: 12px 15px 12px 0;
-
-		&:after {
-			@extend .subpixel-line;
-			content: "";
-			position: absolute;
-			top: 0;
-			left: 0;
-		}
-
-		&:first-child {
-			&:after {
-				background: transparent;
-			}
-		}
-
-		@media (min-width: $portrait-width) {
-			&:first-child {
-				&, p, [role=link], [role=button] {
-					border-top-left-radius: $section-border-radius;
-					border-top-right-radius: $section-border-radius;
-				}
-			}
-
-			&:last-child {
-				&, p, [role=link], [role=button] {
-					border-bottom-left-radius: $section-border-radius;
-					border-bottom-right-radius: $section-border-radius;
-				}
-			}
-		}
-
-		p, [role=link], [role=button] {
-			padding: 12px 15px;
-			margin: -12px -15px;
-		}
-
-		&.has-icon {
-			margin-left: 59px;
-
-			p, [role=link], [role=button] {
-				margin-left: -59px;
-				padding-left: 59px;
-			}
-		}
-
-		.icon {
-			position: absolute;
-			top: 7px;
-			left: 15px;
-			width: 29px;
-			height: 29px;
-		}
-
-		[role=link], [role=button] {
-			display: block;
-			color: $tint-color;
-			padding-right: 30px;
-			-webkit-tap-highlight-color: transparent;
-
-			position: relative;
-			z-index: 2;
-
-			&:focus, &:active {
-				background-color: $selection-color;
-			}
-
-			&:after {
-				content: "";
-				display: block;
-				background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NSIgaGVpZ2h0PSI5OSI+PHBvbHlnb24gcG9pbnRzPSIzNC43LDQ5LjcgMCw4NC40IDE1LjEsOTkuNSA2NC44LDQ5LjcgNDkuNywzNC43IDE1LjEsMCAwLDE1LjEiIHN0eWxlPSJmaWxsOiNjN2M3Y2MiLz48L3N2Zz4=");
-
-				position: absolute;
-				top: 50%;
-				right: 15px;
-				width: 10px;
-				height: 13px;
-				margin-top: -7px;
-				background-size: 100% 100%;
-			}
-		}
-
-		> button {
-			font: inherit;
-			width: 100%;
-			text-align: left;
-		}
-
-		.pull-in {
-			vertical-align: top;
-
-			@media (max-width: $iphone-4-portrait-width + 1) {
-				margin: -11px -15px;
-			}
-		}
-	}
-
-	+ p, + [role=footer] {
-		margin-top: -25px;
 	}
 }

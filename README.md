@@ -22,11 +22,11 @@ Live example: [cydia.hbang.ws](https://cydia.hbang.ws/depiction/ws.hbang.typesta
 	<script src="ios7.min.js"></script>
 </head>
 <body>
-	<header>
+	<header class="ios-header">
 		<h1>Page header.</h1>
 	</header>
 
-	<main id="content">
+	<main class="ios-table ios-main">
 		<h2 role="header">Section header.</h2>
 		
 		<ul>
@@ -35,7 +35,7 @@ Live example: [cydia.hbang.ws](https://cydia.hbang.ws/depiction/ws.hbang.typesta
 			</li>
 
 			<li>
-				<a href="https://hbang.ws/" target="_blank" role="button">Link.</a>
+				<a href="https://hashbang.productions/" target="_blank" role="button">Link.</a>
 			</li>
 
 			<li>
@@ -55,7 +55,9 @@ Live example: [cydia.hbang.ws](https://cydia.hbang.ws/depiction/ws.hbang.typesta
 </html>
 ```
 
-Note that this has changed since version 1.x. Buttons must now be specified with `role="button"`; footers must be specified with `role="footer"`. Headers *should* use `role="header"`, but the styling is still applied to `<h2>`.
+Note that this has changed since version 2.x. You must explicitly use `class="ios-header"` and `class="ios-table"` to have parts of the page gain iOS styles. `class="ios-main"` must also be used to ensure correct styling for tablets and desktop browsers.
+
+Buttons must be specified with `role="button"`; footers must be specified with `role="footer"`. Headers *should* use `role="header"`, but the styling is still applied to `<h2>`.
 
 ## Installation
 ### The easy way:
