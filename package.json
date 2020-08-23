@@ -7,10 +7,9 @@
     "type": "git",
     "url": "git+https://github.com/hbang/ios-7-css.git"
   },
-  "author": "Adam Demasi <adam@hbang.com.au>",
+  "author": "Adam Demasi <adam@hbang.ws>",
   "license": "Apache-2.0",
   "dependencies": {
-    "fastclick": "^1.0.6",
     "normalize.css": "^8.0.1"
   },
   "devDependencies": {
@@ -18,7 +17,6 @@
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^7.0.1",
     "gulp-clean-css": "^4.3.0",
-    "gulp-concat": "^2.6.1",
     "gulp-rename": "^2.0.0",
     "gulp-sass": "^4.1.0",
     "gulp-sourcemaps": "^2.6.5",

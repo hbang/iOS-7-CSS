@@ -35,13 +35,5 @@
 		}
 
 		docElement.removeChild(testElement);
-
-		// MARK: - Fastclick setup
-
-		if ("FastClick" in window) {
-			docElement.addEventListener("DOMContentLoaded", function() {
-				FastClick.attach(docElement.body);
-			});
-		}
 	}
 })(document);

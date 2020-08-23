@@ -2,7 +2,6 @@ const gulp = require("gulp");
 const del = require("del");
 const autoprefixer = require("gulp-autoprefixer");
 const cleanCss = require("gulp-clean-css");
-const concat = require("gulp-concat");
 const rename = require("gulp-rename");
 const sass = require("gulp-sass");
 const sourcemaps = require("gulp-sourcemaps");
@@ -31,12 +30,7 @@ gulp.task("css", () => gulp
 
 gulp.task("js", () => gulp
 	// get all js files
-	.src([
-		"node_modules/fastclick/lib/fastclick.js",
-		"ios7.js"
-	])
-	// concat to one file
-	.pipe(concat("ios7.min.js"))
+	.src([ "ios7.js" ])
 	// make a sourcemap
 	.pipe(sourcemaps.init())
 	// make it ugly
@@ -45,6 +39,8 @@ gulp.task("js", () => gulp
 			comments: /^!|@preserve|@license/
 		}
 	}))
+	// add minified suffix
+	.pipe(rename({ suffix: ".min" }))
 	// write the sourcemaps
 	.pipe(sourcemaps.write("."))
 	// write the file
