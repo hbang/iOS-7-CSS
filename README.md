@@ -69,20 +69,17 @@ Just [download this repo](https://github.com/hbang/iOS-7-CSS/archive/master.zip)
    git clone https://github.com/hbang/iOS-7-CSS.git
    cd iOS-7-CSS
    ```
-2. Install node, npm, and Bower if you don’t already have them installed. For example, on macOS:  
+2. Install node and npm if you don’t already have them installed. For example, on macOS:  
    ```bash
    brew install node
-   npm install -g bower
    ```
 3. Install the dependencies.  
    ```bash
    npm install
-   npm install -g gulp-cli
-   bower install
    ```
 4. Whenever you want to compile the CSS and JS, run Gulp.  
    ```bash
-   gulp
+   npx gulp
    ```
 
 
